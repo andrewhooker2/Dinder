@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../Common/NavButton.dart';
 import '../Common/NavigateButton.dart';
+import '../Common/background_wave.dart';
 
 class CodeEntryPage extends StatefulWidget {
   const CodeEntryPage({Key? key}) : super(key: key);
@@ -22,56 +23,124 @@ class _CodeEntryPageState extends State<CodeEntryPage> {
 
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Dinder"),
-        backgroundColor: AppTheme.kColor1,
-      ),
-      body: Container(
-        child: GestureDetector(
-          onTap: () {
-            FocusScopeNode currentFocus = FocusScope.of(context);
-            if (!currentFocus.hasPrimaryFocus) {
-              currentFocus.unfocus();
-            }
-            setState(() {});
-          },
-          child: Scaffold(
-           body: Padding(
-             padding: EdgeInsets.symmetric(vertical: 0, horizontal: 60),
-             child: Container(
+      backgroundColor: Colors.white,
+      body: Stack(
+        children: [
+          BackgroundWave(height: 150, text: "12864", offsetX: 35, offsetY: 10, textSize: 76),
+          Container(
+            child: GestureDetector(
+              onTap: () {
+                FocusScopeNode currentFocus = FocusScope.of(context);
+                if (!currentFocus.hasPrimaryFocus) {
+                  currentFocus.unfocus();
+                }
+                setState(() {});
+              },
+              child: Scaffold(
+                body: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 0, horizontal: 60),
+                  child: Container(
 
-               child: Column(
-                 mainAxisAlignment: MainAxisAlignment.center,
-                 crossAxisAlignment: CrossAxisAlignment.center,
-                 children: [
-                   const Text(
-                       "Wanting to Vote?",
-                     style: TextStyle(
-                       fontWeight: FontWeight.bold,
-                       fontSize: 40
-                     ),
-                   ),
-                   TextField(
-                     decoration: const InputDecoration(
-                         border: UnderlineInputBorder(),
-                         labelText: "Enter in Room Code"
-                     ),
-                     keyboardType: TextInputType.phone,
-                     inputFormatters: <TextInputFormatter>[
-                       FilteringTextInputFormatter.digitsOnly
-                     ], // Only numbers can be entered
-                   ),
-                   //NavigateButton(context),
-                   NavButton(inputText: "Enter Room", navRoute: "/VotingPage"),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Wanting to Vote?",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 40
+                          ),
+                        ),
+                        TextField(
+                          decoration: const InputDecoration(
+                              border: UnderlineInputBorder(),
+                              labelText: "Enter in Room Code"
+                          ),
+                          keyboardType: TextInputType.phone,
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly
+                          ], // Only numbers can be entered
+                        ),
+                        //NavigateButton(context),
+                        NavButton(inputText: "Enter Room", navRoute: "/VotingPage"),
 
-                 ],
-               ),
-             ),
-           ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
-        ),
+          Positioned(
+            left: 5,
+            top: 50,
+            width: 40,
+            child: FloatingActionButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+
+              backgroundColor: Colors.black,
+              child: const Icon(Icons.arrow_back),
+            ),
+          )
+
+        ],
       ),
     );
+
+    // return Scaffold(
+    //   appBar: AppBar(
+    //     title: Text("Dinder"),
+    //     backgroundColor: AppTheme.kColor1,
+    //   ),
+    //   body: Container(
+    //     child: GestureDetector(
+    //       onTap: () {
+    //         FocusScopeNode currentFocus = FocusScope.of(context);
+    //         if (!currentFocus.hasPrimaryFocus) {
+    //           currentFocus.unfocus();
+    //         }
+    //         setState(() {});
+    //       },
+    //       child: Scaffold(
+    //        body: Padding(
+    //          padding: EdgeInsets.symmetric(vertical: 0, horizontal: 60),
+    //          child: Container(
+    //
+    //            child: Column(
+    //              mainAxisAlignment: MainAxisAlignment.center,
+    //              crossAxisAlignment: CrossAxisAlignment.center,
+    //              children: [
+    //                const Text(
+    //                    "Wanting to Vote?",
+    //                  style: TextStyle(
+    //                    fontWeight: FontWeight.bold,
+    //                    fontSize: 40
+    //                  ),
+    //                ),
+    //                TextField(
+    //                  decoration: const InputDecoration(
+    //                      border: UnderlineInputBorder(),
+    //                      labelText: "Enter in Room Code"
+    //                  ),
+    //                  keyboardType: TextInputType.phone,
+    //                  inputFormatters: <TextInputFormatter>[
+    //                    FilteringTextInputFormatter.digitsOnly
+    //                  ], // Only numbers can be entered
+    //                ),
+    //                //NavigateButton(context),
+    //                NavButton(inputText: "Enter Room", navRoute: "/VotingPage"),
+    //
+    //              ],
+    //            ),
+    //          ),
+    //        ),
+    //       ),
+    //     ),
+    //   ),
+    // );
   }
 }
 
