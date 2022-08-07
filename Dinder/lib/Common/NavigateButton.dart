@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../constants.dart';
 
-Widget NavigateButton(
-    BuildContext context) {
+Widget NavigateButton(BuildContext context) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 15),
     child: Container(
