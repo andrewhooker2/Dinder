@@ -17,77 +17,90 @@ class CodeEntryPage extends StatefulWidget {
 }
 
 class _CodeEntryPageState extends State<CodeEntryPage> {
+
+  // Create a text controller and use it to retrieve the current value
+  // of the TextField.
+  final myController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Start listening to changes.
+    myController.addListener(_printLatestValue);
+  }
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is removed from the widget tree.
+    // This also removes the _printLatestValue listener.
+    myController.dispose();
+    super.dispose();
+  }
+
+  void _printLatestValue() {
+    print('text field: ${myController.text}');
+  }
+
+  String _getText() {
+    return myController.text;
+  }
+
+
   @override
   Widget build(BuildContext context) {
     var pageWidth = MediaQuery.of(context).size.width / 1.4;
 
-
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Stack(
-        children: [
-          BackgroundWave(height: 150, text: "12864", offsetX: 35, offsetY: 10, textSize: 76),
-          Container(
-            child: GestureDetector(
-              onTap: () {
-                FocusScopeNode currentFocus = FocusScope.of(context);
-                if (!currentFocus.hasPrimaryFocus) {
-                  currentFocus.unfocus();
-                }
-                setState(() {});
-              },
-              child: Scaffold(
-                body: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 0, horizontal: 60),
-                  child: Container(
-
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const Text(
-                          "Wanting to Vote?",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 40
-                          ),
-                        ),
-                        TextField(
-                          decoration: const InputDecoration(
-                              border: UnderlineInputBorder(),
-                              labelText: "Enter in Room Code"
-                          ),
-                          keyboardType: TextInputType.phone,
-                          inputFormatters: <TextInputFormatter>[
-                            FilteringTextInputFormatter.digitsOnly
-                          ], // Only numbers can be entered
-                        ),
-                        //NavigateButton(context),
-                        NavButton(inputText: "Enter Room", navRoute: "/VotingPage"),
-
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 5,
-            top: 50,
-            width: 40,
-            child: FloatingActionButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-
-              backgroundColor: Colors.black,
-              child: const Icon(Icons.arrow_back),
-            ),
-          )
-
-        ],
+      appBar: AppBar(
+        title: Text("Dinder"),
+        backgroundColor: AppTheme.kColor1,
       ),
+      body: Container(
+        child: GestureDetector(
+          onTap: () {
+            FocusScopeNode currentFocus = FocusScope.of(context);
+            if (!currentFocus.hasPrimaryFocus) {
+              currentFocus.unfocus();
+            }
+            setState(() {});
+          },
+          child: Scaffold(
+           body: Padding(
+             padding: EdgeInsets.symmetric(vertical: 0, horizontal: 60),
+             child: Container(
+
+               child: Column(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 crossAxisAlignment: CrossAxisAlignment.center,
+                 children: [
+                   const Text(
+                       "Wanting to Vote?",
+                     style: TextStyle(
+                       fontWeight: FontWeight.bold,
+                       fontSize: 40
+                     ),
+                   ),
+                   TextField(
+                     controller: myController,
+                     decoration: const InputDecoration(
+                         border: UnderlineInputBorder(),
+                         labelText: "Enter in Room Code"
+                     ),
+                     keyboardType: TextInputType.phone,
+                     inputFormatters: <TextInputFormatter>[
+                       FilteringTextInputFormatter.digitsOnly
+                     ], // Only numbers can be entered
+                   ),
+                   //NavigateButton(context),
+                   NavButton(inputText: "Enter Room", navRoute: "/VotingPage", backendCall: "JOIN", optionlText: myController.text),
+                 ],
+               ),
+             ),
+           ),
+          ),
+      ),
+    ),
     );
 
     // return Scaffold(

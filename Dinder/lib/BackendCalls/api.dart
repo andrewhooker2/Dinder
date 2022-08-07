@@ -57,6 +57,19 @@ Future<void> LeaveRoom(String userID, String roomID) async {
   );
 }
 
+// add a user to a room
+Future<void> JoinRoom(String userID, String roomID) async {
+  var queryParams = {
+    'user': userID,
+    'room': roomID,
+  };
+  var uri = Uri.http(globals.SERVER_ENDPOINT, '/join', queryParams);
+  http.get(
+    uri,
+    headers: {"Accept": "application/json"},
+  );
+}
+
 // Have a user vote for a restaurant
 Future<model.Response> SwipeRight(String restaurant, String roomID) async {
   var queryParams = {

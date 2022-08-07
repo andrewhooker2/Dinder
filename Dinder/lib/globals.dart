@@ -12,5 +12,6 @@ String CurrentRoom = "";
 
 String DeviceID = "1234";
 
+int counter = 0;
 
 
