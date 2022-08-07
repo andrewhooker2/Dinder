@@ -93,7 +93,7 @@ class _CodeEntryPageState extends State<CodeEntryPage> {
                      ], // Only numbers can be entered
                    ),
                    //NavigateButton(context),
-                   NavButton(inputText: "Enter Room", navRoute: "/VotingPage", backendCall: "JOIN", optionlText: _getText()),
+                   NavButton(inputText: "Enter Room", navRoute: "/VotingPage", backendCall: "JOIN", optionlText: myController.text),
                  ],
                ),
              ),

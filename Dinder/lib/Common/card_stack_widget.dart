@@ -4,6 +4,8 @@ import 'action_button_widget.dart';
 import 'drag_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:dinder/Common/NavButton.dart';
+import '../BackendCalls/api.dart' as backend;
+import '../globals.dart' as globals;
 
 class CardsStackWidget extends StatefulWidget {
   const CardsStackWidget({Key? key}) : super(key: key);
@@ -56,7 +58,7 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
       if (status == AnimationStatus.completed) {
         draggableItems.removeLast();
         _animationController.reset();
-
+        globals.counter++;
         swipeNotifier.value = Swipe.none;
       }
     });
@@ -155,6 +157,8 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                   onPressed: () {
                     swipeNotifier.value = Swipe.left;
                     _animationController.forward();
+                    backend.SwipeLeft(globals.CurrentRoom);
+                    globals.counter++;
                   },
                   icon: const Icon(
                     Icons.close,
@@ -166,6 +170,8 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                   onPressed: () {
                     swipeNotifier.value = Swipe.right;
                     _animationController.forward();
+                    backend.SwipeRight(draggableItems[globals.counter].name, globals.CurrentRoom);
+                    globals.counter++;
                   },
                   icon: const Icon(
                     Icons.favorite,
