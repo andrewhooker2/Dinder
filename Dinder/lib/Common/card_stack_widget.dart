@@ -3,6 +3,7 @@ import '../globals.dart';
 import 'action_button_widget.dart';
 import 'drag_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:dinder/Common/NavButton.dart';
 
 class CardsStackWidget extends StatefulWidget {
   const CardsStackWidget({Key? key}) : super(key: key);
@@ -17,23 +18,28 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
     const Profile(
         name: 'Mcdonalds',
         distance: '2.6 miles away',
-        imageURL: 'https://pbs.twimg.com/profile_images/1546881052035190786/j0wpQleX_400x400.png'),
+        imageURL:
+            'https://pbs.twimg.com/profile_images/1546881052035190786/j0wpQleX_400x400.png'),
     const Profile(
         name: 'Olive Garden',
         distance: '2.5 miles away',
-        imageURL: 'https://assets.entrepreneur.com/content/3x2/2000/1640715494-GettyImages-1231905021.jpg'),
+        imageURL:
+            'https://assets.entrepreneur.com/content/3x2/2000/1640715494-GettyImages-1231905021.jpg'),
     const Profile(
         name: 'Chick-fil-a',
         distance: '2.2 miles away',
-        imageURL: 'http://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Stories%20Images/2018/11/door%20dash/2web.jpg'),
+        imageURL:
+            'http://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Stories%20Images/2018/11/door%20dash/2web.jpg'),
     const Profile(
         name: 'Chipotle',
         distance: '1.8 miles away',
-        imageURL: 'https://exchangegwinnett.com/wp-content/uploads/2020/03/ChipotleMexicanGrills.jpeg'),
+        imageURL:
+            'https://exchangegwinnett.com/wp-content/uploads/2020/03/ChipotleMexicanGrills.jpeg'),
     const Profile(
         name: 'Braums',
         distance: '1 miles away',
-        imageURL: 'https://ca-times.brightspotcdn.com/dims4/default/391b8cd/2147483647/strip/true/crop/5760x3840+0+0/resize/1486x991!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fb1%2F05%2F2386800045f19054fd1304adbc66%2Fla-photos-1staff-464553-fo-braums-kkn-56744.JPG'),
+        imageURL:
+            'https://ca-times.brightspotcdn.com/dims4/default/391b8cd/2147483647/strip/true/crop/5760x3840+0+0/resize/1486x991!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fb1%2F05%2F2386800045f19054fd1304adbc66%2Fla-photos-1staff-464553-fo-braums-kkn-56744.JPG'),
   ];
 
   ValueNotifier<Swipe> swipeNotifier = ValueNotifier(Swipe.none);
@@ -61,6 +67,17 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
     return Stack(
       clipBehavior: Clip.none,
       children: [
+        Positioned(
+
+            bottom: 200,
+            left: 0,
+            right: 0,
+            child: Padding(
+              padding: const EdgeInsets.all(120.0),
+              child: NavButton(inputText: "Done Voting", navRoute: "/ResultsPage", backendCall: "", ),
+            )
+
+        ),
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
           child: ValueListenableBuilder(
@@ -79,8 +96,8 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                           Rect.fromLTWH(
                               swipe != Swipe.none
                                   ? swipe == Swipe.left
-                                  ? -300
-                                  : 300
+                                      ? -300
+                                      : 300
                                   : 0,
                               0,
                               580,
@@ -92,17 +109,17 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                     )),
                     child: RotationTransition(
                       turns: Tween<double>(
-                          begin: 0,
-                          end: swipe != Swipe.none
-                              ? swipe == Swipe.left
-                              ? -0.1 * 0.3
-                              : 0.1 * 0.3
-                              : 0.0)
+                              begin: 0,
+                              end: swipe != Swipe.none
+                                  ? swipe == Swipe.left
+                                      ? -0.1 * 0.3
+                                      : 0.1 * 0.3
+                                  : 0.0)
                           .animate(
                         CurvedAnimation(
                           parent: _animationController,
                           curve:
-                          const Interval(0, 0.4, curve: Curves.easeInOut),
+                              const Interval(0, 0.4, curve: Curves.easeInOut),
                         ),
                       ),
                       child: DragWidget(
@@ -124,6 +141,7 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
             ),
           ),
         ),
+
         Positioned(
           bottom: 10,
           left: 0,
@@ -162,10 +180,10 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
           left: 0,
           child: DragTarget<int>(
             builder: (
-                BuildContext context,
-                List<dynamic> accepted,
-                List<dynamic> rejected,
-                ) {
+              BuildContext context,
+              List<dynamic> accepted,
+              List<dynamic> rejected,
+            ) {
               return IgnorePointer(
                 child: Container(
                   height: 700.0,
@@ -185,10 +203,10 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
           right: 0,
           child: DragTarget<int>(
             builder: (
-                BuildContext context,
-                List<dynamic> accepted,
-                List<dynamic> rejected,
-                ) {
+              BuildContext context,
+              List<dynamic> accepted,
+              List<dynamic> rejected,
+            ) {
               return IgnorePointer(
                 child: Container(
                   height: 700.0,
