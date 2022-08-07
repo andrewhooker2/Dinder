@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-import '../Common/backgroundwave.dart';
+import '../Common/background_wave.dart';
 
 class HomeScreen extends StatefulWidget {
   final Widget child;

@@ -4,9 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 class BackgroundWave extends StatelessWidget {
   final double height;
   final String text;
+  final double offsetX, offsetY;
+  final double textSize;
 
-
-  const BackgroundWave({Key? key, required this.height, required this.text}) : super(key: key);
+  const BackgroundWave({Key? key, required this.height, required this.text, this.offsetX = 0, this.offsetY = 0, this.textSize = 84}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +25,10 @@ class BackgroundWave extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(18, 0, 0, 30),
+                padding: EdgeInsets.fromLTRB(18+offsetX, 0, 0, 30+offsetY),
                 child: Text(
                   this.text,
-                  style: GoogleFonts.pacifico(fontSize: 84, color: Colors.white, shadows: [Shadow(
+                  style: GoogleFonts.pacifico(fontSize: textSize, color: Colors.white, shadows: [Shadow(
                     blurRadius: 10.0,
                     color: Colors.blue,
                     offset: Offset(5.0, 5.0),
