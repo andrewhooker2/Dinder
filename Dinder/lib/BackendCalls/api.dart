@@ -20,14 +20,14 @@ Future<String> Alive() async {
     headers: {"Accept": "application/json"},
   );
   if (response.statusCode == 200) {
-    return response.body;
+    return jsonDecode(response.body)['roomID'];
   } else {
     return "";
   }
 }
 
 // Create a room, put the user in the room, get a list of restaurants back
-Future<List<String>> CreateRoom(String userID) async {
+Future<String> CreateRoom(String userID) async {
   var queryParams = {
     'user': userID,
   };
@@ -37,9 +37,9 @@ Future<List<String>> CreateRoom(String userID) async {
     headers: {"Accept": "application/json"},
   );
   if (response.statusCode == 200) {
-    return globals.Restaurants;
+    return jsonDecode(response.body)['roomID'];
   } else {
-    return <String>[];
+    return "";
   }
 }
 
