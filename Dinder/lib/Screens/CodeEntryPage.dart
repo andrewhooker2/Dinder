@@ -1,4 +1,5 @@
 import 'package:dinder/Common/NumberInputWidget.dart';
+import 'package:dinder/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -14,26 +15,56 @@ class _CodeEntryPageState extends State<CodeEntryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Put code here",
-
-        ),
+        title: Text("Dinder"),
+        backgroundColor: AppTheme.kColor1,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-
-          Center(
-            child:TextField(
-              keyboardType: TextInputType.number,
-              inputFormatters: <TextInputFormatter>[
-                FilteringTextInputFormatter.digitsOnly
-              ], // Only numbers can be entered
-            ),
+      body: Container(
+        child: GestureDetector(
+          onTap: () {
+            FocusScopeNode currentFocus = FocusScope.of(context);
+            if (!currentFocus.hasPrimaryFocus) {
+              currentFocus.unfocus();
+            }
+            setState(() {});
+          },
+          child: Scaffold(
+           body: Column(
+             children: [
+               Text(
+                   "Enter in Room Code",
+                 style: TextStyle(
+                   fontWeight: FontWeight.bold,
+                 ),
+               ),
+               TextField(
+                 decoration: InputDecoration(
+                     border: UnderlineInputBorder(),
+                     labelText: "Enter in your code"
+                 ),
+                 keyboardType: TextInputType.phone,
+                 inputFormatters: <TextInputFormatter>[
+                   FilteringTextInputFormatter.digitsOnly
+                 ], // Only numbers can be entered
+               ),
+             ],
+           ),
           ),
-        ],
+        ),
       ),
     );
   }
 }
+
+
+/*
+TextField(
+decoration: InputDecoration(
+border: UnderlineInputBorder(),
+labelText: "Enter in your code"
+),
+keyboardType: TextInputType.phone,
+inputFormatters: <TextInputFormatter>[
+FilteringTextInputFormatter.digitsOnly
+], // Only numbers can be entered
+),
+*/
