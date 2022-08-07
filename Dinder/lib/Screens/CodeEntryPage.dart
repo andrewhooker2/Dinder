@@ -82,6 +82,7 @@ class _CodeEntryPageState extends State<CodeEntryPage> {
                      ),
                    ),
                    TextField(
+                     controller: myController,
                      decoration: const InputDecoration(
                          border: UnderlineInputBorder(),
                          labelText: "Enter in Room Code"
@@ -89,8 +90,7 @@ class _CodeEntryPageState extends State<CodeEntryPage> {
                      keyboardType: TextInputType.phone,
                      inputFormatters: <TextInputFormatter>[
                        FilteringTextInputFormatter.digitsOnly
-                     ],
-                     controller: myController,// Only numbers can be entered
+                     ], // Only numbers can be entered
                    ),
                    //NavigateButton(context),
                    NavButton(inputText: "Enter Room", navRoute: "/VotingPage", backendCall: "JOIN", optionlText: _getText()),
