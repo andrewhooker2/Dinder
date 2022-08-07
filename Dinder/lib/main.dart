@@ -3,10 +3,14 @@ import 'package:dinder/Screens/HomeScreen.dart';
 import 'package:dinder/Screens/ResultsPage.dart';
 import 'package:dinder/Screens/VotingPage.dart';
 import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 
 import 'Screens/ConfigurationPage.dart';
+import 'globals.dart' as globals;
 
 void main() {
+// Create uuid object
+  globals.DeviceID = Uuid().v1();
   runApp(MyApp());
 }
 
