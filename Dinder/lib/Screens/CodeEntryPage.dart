@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import '../Common/NavButton.dart';
 import '../Common/NavigateButton.dart';
 import '../Common/background_wave.dart';
+import 'package:dinder/globals.dart' as globals;
 
 class CodeEntryPage extends StatefulWidget {
   const CodeEntryPage({Key? key}) : super(key: key);
@@ -40,6 +41,7 @@ class _CodeEntryPageState extends State<CodeEntryPage> {
 
   void _printLatestValue() {
     print('text field: ${myController.text}');
+    globals.CurrentRoom = myController.text;
   }
 
   String _getText() {
@@ -93,7 +95,7 @@ class _CodeEntryPageState extends State<CodeEntryPage> {
                      ], // Only numbers can be entered
                    ),
                    //NavigateButton(context),
-                   NavButton(inputText: "Enter Room", navRoute: "/VotingPage", backendCall: "JOIN", optionlText: myController.text),
+                   NavButton(inputText: "Enter Room", navRoute: "/VotingPage", backendCall: "JOIN", optionlText: globals.CurrentRoom,),
                  ],
                ),
              ),

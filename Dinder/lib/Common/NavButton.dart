@@ -36,8 +36,6 @@ class _NavButtonState extends State<NavButton> {
           if (widget.backendCall == "CREATE") {
             backend.CreateRoom(globals.DeviceID);
           } else if (widget.backendCall == "JOIN"){
-            print("HERERERERER-------> " + widget.optionlText);
-            globals.CurrentRoom = widget.optionlText;
             backend.JoinRoom(globals.DeviceID, globals.CurrentRoom);
           }
           Navigator.pushNamed(context, widget.navRoute);
