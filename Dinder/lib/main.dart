@@ -4,6 +4,8 @@ import 'package:dinder/Screens/ResultsPage.dart';
 import 'package:dinder/Screens/VotingPage.dart';
 import 'package:flutter/material.dart';
 
+import 'Screens/ConfigurationPage.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -28,6 +30,7 @@ class MyApp extends StatelessWidget {
         "/ResultsPage": (context) => ResultsPage(),
         "/CodeEntryPage": (context) => CodeEntryPage(),
         "/VotingPage": (context) => VotingPage(),
+        "/ConfigruationPage": (context) => ConfigurationPage(),
       },
     );
   }
