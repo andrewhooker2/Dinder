@@ -21,7 +21,10 @@ class MyApp extends StatelessWidget {
       initialRoute: "/HomeScreen",
       //This is where you will put the different pages we can navigate to with the progject
       routes: {
-        "/HomeScreen": (context) => HomeScreen(),
+        "/HomeScreen": (context) => HomeScreen(
+          durationInSeconds: 10, // this is the default value
+          child: Image.asset('assets/images/chickenerdrummerstick.png')
+        ),
         "/ResultsPage": (context) => ResultsPage(),
         "/CodeEntryPage": (context) => CodeEntryPage(),
         "/VotingPage": (context) => VotingPage(),
