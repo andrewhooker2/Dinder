@@ -1,5 +1,5 @@
 import 'package:dinder/Screens/CodeEntryPage.dart';
-import 'package:dinder/Screens/LandingPage.dart';
+import 'package:dinder/Screens/HomeScreen.dart';
 import 'package:dinder/Screens/ResultsPage.dart';
 import 'package:dinder/Screens/VotingPage.dart';
 import 'package:flutter/material.dart';

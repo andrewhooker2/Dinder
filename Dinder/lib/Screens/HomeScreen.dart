@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
               width: double.infinity,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage('https://media.istockphoto.com/photos/poultry-roast-chicken-drumstick-isolated-on-white-background-picture-id182359988?k=20&m=182359988&s=170667a&w=0&h=kzfytL2bm8oro_65TLzF9oZ3RES_4e60gGGRLgO3v20='),
+                  image: NetworkImage('../assets/chickendrummerstick.png'),
                   fit: BoxFit.cover,
                 ),
                 boxShadow: [
