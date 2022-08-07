@@ -38,7 +38,7 @@ class _ResultsPageState extends State<ResultsPage> {
               padding: const EdgeInsets.all(80),
               child: Container(
                 color: Colors.amberAccent,
-                child: NavButton(inputText: "Finally! Go Eat!", navRoute: "/HomeScreen"),
+                child: NavButton(inputText: "Finally! Go Eat!", navRoute: "/HomeScreen", backendCall: "coconut.jpg",),
 
     ),
             )
