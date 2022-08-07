@@ -4,6 +4,7 @@ import 'package:dinder/Common/NumberInputWidget.dart';
 import 'package:dinder/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../Common/NavButton.dart';
 import '../Common/NavigateButton.dart';
 
 class CodeEntryPage extends StatefulWidget {
@@ -60,7 +61,9 @@ class _CodeEntryPageState extends State<CodeEntryPage> {
                        FilteringTextInputFormatter.digitsOnly
                      ], // Only numbers can be entered
                    ),
-                   NavigateButton(context),
+                   //NavigateButton(context),
+                   NavButton(inputText: "Enter Room", navRoute: "/VotingPage"),
+
                  ],
                ),
              ),

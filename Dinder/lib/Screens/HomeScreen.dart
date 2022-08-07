@@ -86,7 +86,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
-                      onPressed: () { },
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/ConfigruationPage");
+                      },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
                         padding: const EdgeInsets.all(2.0),
@@ -110,7 +112,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
-                      onPressed: () { },
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/CodeEntryPage");
+                      },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
                         padding: const EdgeInsets.all(2.0),
