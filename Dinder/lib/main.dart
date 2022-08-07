@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
       // ),
       title: 'Dinder',
       initialRoute: "/HomeScreen",
-
       //This is where you will put the different pages we can navigate to with the progject
       routes: {
         "/HomeScreen": (context) => HomeScreen(),
