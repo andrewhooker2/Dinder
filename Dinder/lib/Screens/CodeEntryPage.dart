@@ -1,4 +1,6 @@
+import 'package:dinder/Common/NumberInputWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CodeEntryPage extends StatefulWidget {
   const CodeEntryPage({Key? key}) : super(key: key);
@@ -10,8 +12,26 @@ class CodeEntryPage extends StatefulWidget {
 class _CodeEntryPageState extends State<CodeEntryPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text("I amd the Code Entry Page"),
+    return Scaffold(
+      appBar: AppBar(
+
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+
+
+          Center(
+            child:TextField(
+              keyboardType: TextInputType.number,
+              inputFormatters: <TextInputFormatter>[
+                FilteringTextInputFormatter.digitsOnly
+              ], // Only numbers can be entered
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

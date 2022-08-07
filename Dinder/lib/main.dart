@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       //   scaffoldBackgroundColor: kOffWhite,
       // ),
       title: 'Dinder',
-      initialRoute: "/VotingPage",
+      initialRoute: "/CodeEntryPage",
 
       //This is where you will put the different pages we can navigate to with the progject
       routes: {
