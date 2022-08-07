@@ -1,3 +1,4 @@
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:http/http.dart' as http;
 
 import '../globals.dart' as globals;
@@ -83,4 +84,15 @@ Future<model.Response> SwipeLeft(String roomID) async {
   );
 
   return model.Response.fromJson(jsonDecode(response.body));
+}
+
+Future<String?> getId() async {
+  var deviceInfo = DeviceInfoPlugin();
+  if (Platform.isIOS) { // import 'dart:io'
+    var iosDeviceInfo = await deviceInfo.iosInfo;
+    return iosDeviceInfo.identifierForVendor; // unique ID on iOS
+  } else if(Platform.isAndroid) {
+    var androidDeviceInfo = await deviceInfo.androidInfo;
+    return androidDeviceInfo.androidId; // unique ID on Android
+  }
 }

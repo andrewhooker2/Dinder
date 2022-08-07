@@ -9,3 +9,8 @@ List<String> Restaurants = ["Mcdonalds", "Chick-fil-a", "Taco Bell", "Olive Gard
 
 // the current room the user is in
 String CurrentRoom = "";
+
+String DeviceID = "1234";
+
+
+
