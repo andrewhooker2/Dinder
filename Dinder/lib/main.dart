@@ -9,7 +9,6 @@ import 'Screens/ConfigurationPage.dart';
 import 'globals.dart' as globals;
 
 void main() {
-// Create uuid object
   globals.DeviceID = Uuid().v1();
   runApp(MyApp());
 }

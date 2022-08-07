@@ -16,10 +16,39 @@ class CodeEntryPage extends StatefulWidget {
 }
 
 class _CodeEntryPageState extends State<CodeEntryPage> {
+
+  // Create a text controller and use it to retrieve the current value
+  // of the TextField.
+  final myController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Start listening to changes.
+    myController.addListener(_printLatestValue);
+  }
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is removed from the widget tree.
+    // This also removes the _printLatestValue listener.
+    myController.dispose();
+    super.dispose();
+  }
+
+  void _printLatestValue() {
+    print('text field: ${myController.text}');
+  }
+
+  String _getText() {
+    return myController.text;
+  }
+
+
   @override
   Widget build(BuildContext context) {
     var pageWidth = MediaQuery.of(context).size.width / 1.4;
-
 
     return Scaffold(
       appBar: AppBar(
@@ -59,11 +88,11 @@ class _CodeEntryPageState extends State<CodeEntryPage> {
                      keyboardType: TextInputType.phone,
                      inputFormatters: <TextInputFormatter>[
                        FilteringTextInputFormatter.digitsOnly
-                     ], // Only numbers can be entered
+                     ],
+                     controller: myController,// Only numbers can be entered
                    ),
                    //NavigateButton(context),
-                   NavButton(inputText: "Enter Room", navRoute: "/VotingPage"),
-
+                   NavButton(inputText: "Enter Room", navRoute: "/VotingPage", backendCall: "JOIN", optionlText: _getText()),
                  ],
                ),
              ),

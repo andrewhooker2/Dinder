@@ -172,7 +172,7 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
             SizedBox(
               height: 50,
             ),
-            NavButton(inputText: "Start Room", navRoute: "/ResultsPage"),
+            NavButton(inputText: "Start Room", navRoute: "/ResultsPage", backendCall: "CREATE", optionlText: "coconut.jpg"),
           ],
         ),
       ),

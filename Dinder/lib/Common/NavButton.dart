@@ -2,14 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
+import '../BackendCalls/api.dart' as backend;
+import '../globals.dart' as globals;
 
 class NavButton extends StatefulWidget {
   //const CustomButton({Key? key}) : super(key: key);
-  const NavButton(
-      {super.key, required this.inputText, required this.navRoute});
+  NavButton(
+      {super.key, required this.inputText, required this.navRoute, required this.backendCall, this.optionlText = "abc"});
 
   final String inputText;
   final String navRoute;
+  final String backendCall;
+  String optionlText;
 
   //Color buttonColor;
 
@@ -29,6 +33,12 @@ class _NavButtonState extends State<NavButton> {
       /// Needing to add Conditional logic
       child: ElevatedButton(
         onPressed: () {
+          if (widget.backendCall == "CREATE") {
+            backend.CreateRoom(globals.DeviceID);
+          } else if (widget.backendCall == "JOIN"){
+            //backend.JoinRoom(globals.DeviceID, globals.CurrentRoom);
+            print("HERERERERER-------> " + widget.optionlText);
+          }
           Navigator.pushNamed(context, widget.navRoute);
         },
         child: Text(
