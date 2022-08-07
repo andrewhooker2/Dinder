@@ -26,7 +26,7 @@ class _VotingPageState extends State<VotingPage> {
             width: 40,
             child: FloatingActionButton(
               onPressed: () {
-                print("object");
+                Navigator.of(context).pop();
               },
 
               backgroundColor: Colors.black,
