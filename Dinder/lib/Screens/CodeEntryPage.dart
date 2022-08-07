@@ -14,13 +14,15 @@ class _CodeEntryPageState extends State<CodeEntryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text(
+          "Put code here",
 
+        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-
 
           Center(
             child:TextField(
