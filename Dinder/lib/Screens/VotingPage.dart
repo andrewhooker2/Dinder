@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../Common/background_curve_widget.dart';
 import '../Common/background_wave.dart';
 import '../Common/card_stack_widget.dart';
 

@@ -1,3 +1,4 @@
+import 'package:android_id/android_id.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:http/http.dart' as http;
 
@@ -105,7 +106,7 @@ Future<String?> getId() async {
     var iosDeviceInfo = await deviceInfo.iosInfo;
     return iosDeviceInfo.identifierForVendor; // unique ID on iOS
   } else if(Platform.isAndroid) {
-    var androidDeviceInfo = await deviceInfo.androidInfo;
-    return androidDeviceInfo.androidId; // unique ID on Android
+    return const AndroidId().getId(); // unique ID on Android (Settings.Secure.ANDROID_ID)
   }
+  return null;
 }

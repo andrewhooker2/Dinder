@@ -1,8 +1,5 @@
 import 'package:dinder/Common/NavButton.dart';
-import 'package:dinder/constants.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:dinder/globals.dart' as globals;
 
 import '../Common/background_wave.dart';
 

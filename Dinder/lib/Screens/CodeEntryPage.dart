@@ -1,12 +1,9 @@
 
 
-import 'package:dinder/Common/NumberInputWidget.dart';
 import 'package:dinder/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../Common/NavButton.dart';
-import '../Common/NavigateButton.dart';
-import '../Common/background_wave.dart';
 import 'package:dinder/globals.dart' as globals;
 
 class CodeEntryPage extends StatefulWidget {
@@ -44,14 +41,9 @@ class _CodeEntryPageState extends State<CodeEntryPage> {
     globals.CurrentRoom = myController.text;
   }
 
-  String _getText() {
-    return myController.text;
-  }
-
 
   @override
   Widget build(BuildContext context) {
-    var pageWidth = MediaQuery.of(context).size.width / 1.4;
 
     return Scaffold(
       appBar: AppBar(
