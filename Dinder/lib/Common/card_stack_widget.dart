@@ -198,9 +198,9 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                 ),
               );
             },
-            onAccept: (int index) {
+            onAcceptWithDetails: (DragTargetDetails<int> details) {
               setState(() {
-                draggableItems.removeAt(index);
+                draggableItems.removeAt(details.data);
               });
             },
           ),
@@ -221,9 +221,9 @@ class _CardsStackWidgetState extends State<CardsStackWidget>
                 ),
               );
             },
-            onAccept: (int index) {
+            onAcceptWithDetails: (DragTargetDetails<int> details) {
               setState(() {
-                draggableItems.removeAt(index);
+                draggableItems.removeAt(details.data);
               });
             },
           ),

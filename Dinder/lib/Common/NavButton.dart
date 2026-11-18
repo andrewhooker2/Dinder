@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
 import '../BackendCalls/api.dart' as backend;
 import '../globals.dart' as globals;
 
@@ -13,7 +12,7 @@ class NavButton extends StatefulWidget {
   final String inputText;
   final String navRoute;
   final String backendCall;
-  String optionlText;
+  final String optionlText;
 
   //Color buttonColor;
 
